@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">InstaVax</string>
+    <string name="button1_text">Search for Appointments</string>
+    <string name="button2_text">Set Reminder</string>
+    <string name="pin_code">PIN Code</string>
+    <string name="pin_example">e.g. 700010</string>
+    <string name="date_picker_label">Date</string>
+    <string name="date_example">e.g. 02/03/2021</string>
+    <string name="search_btn_label">Search!</string>
+    <string name="activity2_heading">Search For An Appointment</string>
+    <string name="activity1_heading">Welcome To InstaVax</string>
+    <string name="search_heading">Available Appointments</string>
+    <string name="reminder_heading">Set a Reminder Here !</string>
+    <string name="reminder_button_init">Set Reminder !</string>
+</resources>
