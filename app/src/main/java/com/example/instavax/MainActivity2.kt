@@ -6,11 +6,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
+import java.lang.reflect.Constructor
 
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +28,7 @@ class MainActivity2 : AppCompatActivity() {
             val queue = Volley.newRequestQueue(this)
             val dateFormatted = date.text.toString()
             dateFormatted.replace("/","-")
+            dateFormatted.replace(".","-")
             val url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pin.text.toString()+"&date="+dateFormatted
             val jsonobject = JsonObjectRequest(Request.Method.GET, url, null,
                 { response ->
@@ -32,7 +37,11 @@ class MainActivity2 : AppCompatActivity() {
                     intent.putExtra("sessions",all)
                     startActivity(intent)
             },
-                { Log.d("error", "That didn't work!") })
+                {   Log.d("error", "Please Check ")
+                    val layout: ConstraintLayout = findViewById(R.id.superParent)
+                    val snack: Snackbar= Snackbar.make(layout,"Please Enter Valid PIN and Date :(",Snackbar.LENGTH_LONG)
+                    snack.show()
+                })
 
             // Add the request to the RequestQueue.
             queue.add(jsonobject)

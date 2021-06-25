@@ -15,14 +15,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
-
-        val btn2: Button = findViewById(R.id.button2)
-        btn2.setOnClickListener{
-            val intent = Intent(this, ReminderActivity::class.java)
-            startActivity(intent)
-        }
-
-
     }
 
 
